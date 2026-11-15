@@ -1,6 +1,6 @@
-# 静婵语文小助手
+# 语文小帮手
 
-[在线使用静婵语文小助手](https://zhiyanren.github.io/jingchan-yuwen-assistant/) · [应用岛入口](https://zhiyanren.github.io/app-island/)
+[在线使用语文小帮手](https://zhiyanren.github.io/jingchan-yuwen-assistant/) · [应用岛入口](https://zhiyanren.github.io/app-island/)
 
 六年级语文学习书房：课文听写、语文积累、错题小本。iPad 优先，兼容手机和电脑，学习数据仅保存在当前浏览器。完整新版下载后自动保存、加载并恢复练习，输入中文、播放语音或操作弹窗时延后更新。
 

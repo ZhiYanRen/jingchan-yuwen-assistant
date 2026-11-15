@@ -1,4 +1,4 @@
-# 静婵语文小助手 · 独立项目开发规范
+# 语文小帮手 · 独立项目开发规范
 
 # 多项目工作区 · Agent 开发规范
 
@@ -108,7 +108,7 @@
 
 ## 9. 本项目实际配置
 
-- 本项目名称静婵语文小助手，面向六年级语文学习，提供课文听写、语文积累、错题小本。教材版本在SOURCES.md逐项记录，不将印刷年份等同修订版。
+- 本项目名称语文小帮手，面向六年级语文学习，提供课文听写、语文积累、错题小本。教材版本在SOURCES.md逐项记录，不将印刷年份等同修订版。
 - 本地目录/Users/yanren/Documents/github/jingchan-yuwen-assistant；已建立独立公开仓库https://github.com/ZhiYanRen/jingchan-yuwen-assistant，正式网站https://zhiyanren.github.io/jingchan-yuwen-assistant/（Pages已部署并线上验证）。主干main，所有工作直接main提交推送，无分支或worktree。
 - 仅原生HTML/CSS/JS、静态JSON、PNG与SVG，朗读使用设备中文语音；GitHub Pages静态运行，无生产后端、远程数据库或服务器API。个人记录localStorage自动保存，提供备份导入导出；不采集录音。
 - iPad为主，App式稳定导航与任务区；同时支持手机、PC、横竖屏、安全区、系统键盘、缩放、可见焦点和减少动态效果。学习数据变化自动保存，新版完整缓存后自动更新且恢复练习；失败提示并保留数据。

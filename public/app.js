@@ -44,7 +44,7 @@ function render(focus=false){
  if(focus)$('#page-title')?.focus();else if(aid){const next=document.getElementById(aid);next?.focus({preventScroll:true});if(typeof pos==='number'&&typeof next?.setSelectionRange==='function'&&next.type!=='number')try{next.setSelectionRange(pos,pos);}catch{}}
  else if(act){[...main.querySelectorAll('[data-act]')].find(el=>el.dataset.act===act&&el.dataset.id===item)?.focus({preventScroll:true});}
 }
-function heading(title,subtitle,action=''){return `<div class="page-heading"><div><p class="eyebrow">静婵的语文书房</p><h1 id="page-title" tabindex="-1">${title}</h1><p>${subtitle}</p></div>${action}</div>`;}
+function heading(title,subtitle,action=''){return `<div class="page-heading"><div><p class="eyebrow">语文小帮手</p><h1 id="page-title" tabindex="-1">${title}</h1><p>${subtitle}</p></div>${action}</div>`;}
 function unitOptions(selected='all',all=true,lessonsOnly=false){return `${all?'<option value="all">全部单元</option>':''}${Array.from({length:book().units},(_,i)=>i+1).filter(n=>!lessonsOnly||book().lessons.some(l=>l.unit===n)).map(n=>`<option value="${n}" ${String(selected)===String(n)?'selected':''}>第${['一','二','三','四','五','六','七','八'][n-1]}单元</option>`).join('')}`;}
 function lessonOptions(selected=lesson().id){return book().lessons.map(l=>`<option value="${l.id}" ${l.id===selected?'selected':''}>${l.number}. ${esc(l.title)}</option>`).join('');}
 function asideCard(){const complete=state.progress.completed.length;return `<aside class="study-aside"><section class="card progress-card"><div class="mini-title">${icon('leaf')}<h2>一点一滴，都算数</h2></div><div class="stat-line"><strong>${state.progress.answered}</strong><span>累计练习词语</span></div><div class="mini-stats"><div><b>${state.progress.correct}</b><span>写对词语</span></div><div><b>${complete}</b><span>完成课文</span></div></div><p class="muted">从一次听清、一次写对开始，<br>把进步留在每一天。</p></section><section class="card tip-card"><span class="tip-icon">${icon('pen')}</span><h2>听 · 写 · 想</h2><ol><li>先听清楚，不急着落笔。</li><li>认真书写，留意形近字。</li><li>核对后，把错词再记一遍。</li></ol><a href="#mistakes">去看看错题小本 ${icon('arrow')}</a></section><p class="aside-quote">“不积跬步，无以至千里。”<small>——《荀子·劝学》</small></p></aside>`;}
@@ -97,7 +97,7 @@ function showForm(kind,id,trigger){
 }
 function confirmDelete(kind,id,trigger){const record=(kind==='mistake'?state.mistakes:state.custom).find(x=>x.id===id);if(!record)return;openDialog(`<h2 id="dialog-title">删除${kind==='mistake'?'错题':'积累'}</h2><p>确定删除“${esc(record.question||record.title)}”吗？这条记录将从当前设备移除。</p><div class="dialog-actions">${button('取消','close-dialog','autofocus')}<button class="button danger" data-act="confirm-delete" data-kind="${kind}" data-id="${id}">删除${kind==='mistake'?'错题':'积累'}</button></div>`,trigger);}
 function download(content,name){const url=URL.createObjectURL(new Blob([content],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
-function exportBackup(){download(JSON.stringify({app:APP,schema:1,exportedAt:new Date().toISOString(),state},null,2),'静婵语文-学习备份-'+new Date().toLocaleDateString('sv-SE')+'.json');toast('备份已生成，请妥善保存。');}
+function exportBackup(){download(JSON.stringify({app:APP,schema:1,exportedAt:new Date().toISOString(),state},null,2),'语文小帮手-学习备份-'+new Date().toLocaleDateString('sv-SE')+'.json');toast('备份已生成，请妥善保存。');}
 async function importFile(file){
  const error=$('#import-error');if(!file)return;
  try{if(file.size>5*1024*1024)throw new Error('文件超过5 MB，请选择本应用导出的备份。');const validated=validateBackup(JSON.parse(await file.text()),catalog);openDialog(`<h2 id="dialog-title">导入学习备份</h2><p>将用备份中的 ${validated.mistakes.length} 道错题、${validated.custom.length} 则自建积累和练习进度，替换当前设备的全部记录。</p><p class="info-note">建议先导出当前备份。取消不会改变现有记录。</p><div class="dialog-actions">${button('先导出当前备份','export')}${button('取消','close-dialog','autofocus')}${button('替换并导入','confirm-import','class="button danger"')}</div>`);pendingImport=validated;error.hidden=true;}
@@ -143,7 +143,7 @@ document.addEventListener('click',e=>{
  else if(act==='confirm-delete'){if(el.dataset.kind==='mistake')state.mistakes=state.mistakes.filter(x=>x.id!==id);else{state.custom=state.custom.filter(x=>x.id!==id);state.stars=state.stars.filter(x=>x!==id);state.mastered=state.mastered.filter(x=>x!==id);}persist();render();closeDialog();toast('记录已删除。');}
  else if(act==='close-dialog')closeDialog();
  else if(act==='export')exportBackup();
- else if(act==='raw-export')download(storageRaw,'静婵语文-原始记录.json');
+ else if(act==='raw-export')download(storageRaw,'语文小帮手-原始记录.json');
  else if(act==='confirm-import'&&pendingImport){stopVoice();state=pendingImport;storageBlocked=false;externalConflict=false;storageRaw=null;$('#persistent-error').hidden=true;persist();render();closeDialog();toast('学习备份已导入。');}
  else if(act==='mistakes-prev'||act==='mistakes-next'){mistakePage+=act==='mistakes-prev'?-1:1;render();$('#page-title').focus();}
  else if(act==='retry-load')boot();

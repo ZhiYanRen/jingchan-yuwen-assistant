@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: 静婵语文小助手
+name: 语文小帮手
 description: 六年级学生的月光书房，围绕听写、积累与订正展开。
 colors:
   primary: '#47459B'
@@ -32,7 +32,7 @@ components:
   dialog: {}
 ---
 
-# 静婵的月光书房
+# 语文小帮手 · 月光书房
 
 ## Overview
 面向小学六年级学生，简体中文。iPad 上每日听写与复习的产品界面，固定功能导航和聚焦任务区，不采用宣传首页。沿用已有月牙书页原创标识。唯一表达重点是听写卡上的月光、书页与田字格；周边保持安静，避免幼儿卡通、排行榜和无意义积分。
@@ -56,6 +56,8 @@ sans 对应 --font-ui，reading 对应 --font-reading。正文16px、行高1.65�
 
 ## Components
 所有屏幕共享 .button、.field、.card、.empty、toast() 与原生 dialog 包装。圆角映射 --radius=16px、--radius-small=12px、--radius-large=24px；间距 --space=8px、--panel=24px、--section=32px。SVG 线性图标统一描边，不把 emoji 当图标。
+
+品牌标题统一“语文小帮手”，侧栏采用18px标题与36px图标，在窄平板侧栏完整显示；主屏幕名称保持一致。
 
 品牌资源：public/icon.svg 为可维护原创源、导航 Logo/favicon；public/icons/apple-touch-icon.png 为180px主屏幕图标，icon-192.png/icon-512.png用于manifest。应用岛复制同一SVG。所有路径相对项目目录。
 

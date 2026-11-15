@@ -25,6 +25,6 @@ Ponytail Review只读审查发现3项真实问题，已全部用失败用例复�
 
 主功能提交1b9d5cf，GitHub Actions运行43692010330成功；正式网站https://zhiyanren.github.io/jingchan-yuwen-assistant/已访问并验证HTML、指纹模块、样式、manifest、所有PNG图标与service worker。线上iPad视口下下册输入核对与刷新恢复通过。
 
-应用岛提交47754d3，运行43692801844成功；线上目录published与Logo加载正确，实际点击静婵入口打开新窗口，目标地址正确且window.opener为null。
+应用岛提交47754d3，运行43692801844成功；线上目录published与Logo加载正确，实际点击语文小帮手入口打开新窗口，目标地址正确且window.opener为null。
 
 WebKit回归额外发现Safari鼠标点击不一定先聚焦按钮，已将弹窗返回目标改为显式传入实际触发按钮，而非只取document.activeElement；六视口完整CRUD回归通过。
