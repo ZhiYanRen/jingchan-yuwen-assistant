@@ -109,7 +109,7 @@
 ## 9. 本项目实际配置
 
 - 本项目名称静婵语文小助手，面向六年级语文学习，提供课文听写、语文积累、错题小本。教材版本在SOURCES.md逐项记录，不将印刷年份等同修订版。
-- 本地目录/Users/yanren/Documents/github/jingchan-yuwen-assistant；已建立独立公开仓库https://github.com/ZhiYanRen/jingchan-yuwen-assistant，正式地址必须以Pages发布结果为准并在README回填。主干main，所有工作直接main提交推送，无分支或worktree。
+- 本地目录/Users/yanren/Documents/github/jingchan-yuwen-assistant；已建立独立公开仓库https://github.com/ZhiYanRen/jingchan-yuwen-assistant，正式网站https://zhiyanren.github.io/jingchan-yuwen-assistant/（Pages已部署并线上验证）。主干main，所有工作直接main提交推送，无分支或worktree。
 - 仅原生HTML/CSS/JS、静态JSON、PNG与SVG，朗读使用设备中文语音；GitHub Pages静态运行，无生产后端、远程数据库或服务器API。个人记录localStorage自动保存，提供备份导入导出；不采集录音。
 - iPad为主，App式稳定导航与任务区；同时支持手机、PC、横竖屏、安全区、系统键盘、缩放、可见焦点和减少动态效果。学习数据变化自动保存，新版完整缓存后自动更新且恢复练习；失败提示并保留数据。
 - 专属原创月牙与书页Logo位于public/icon.svg；favicon、apple-touch-icon和manifest统一品牌，192/512PNG随版本管理，全部资源适配Pages项目子路径。重要视觉与动效在DESIGN.md维护。
@@ -121,3 +121,5 @@
 
 - 本次教材：上册2024审核修订26课，下册官方可核验17课并单独说明未确认2024修订；SOURCES.md记录官方入口。public/data.json是课程和积累唯一来源，禁止再执行work中的历史生成脚本覆盖正式内容。
 - 应用文件：public/app.js共享界面和动作，domain.js判分与备份校验，storage.js本机读写，updates.js安全自动更新；相对路径和hash路由。图标PNG在public/icons/，manifest.webmanifest声明项目scope。
+
+- 应用岛登记已published并发布，正式入口https://zhiyanren.github.io/app-island/；项目Logo、新窗口链接及opener隔离已在线验证。

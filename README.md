@@ -1,5 +1,7 @@
 # 静婵语文小助手
 
+[在线使用静婵语文小助手](https://zhiyanren.github.io/jingchan-yuwen-assistant/) · [应用岛入口](https://zhiyanren.github.io/app-island/)
+
 六年级语文学习书房：课文听写、语文积累、错题小本。iPad 优先，兼容手机和电脑，学习数据仅保存在当前浏览器。完整新版下载后自动保存、加载并恢复练习，输入中文、播放语音或操作弹窗时延后更新。
 
 ## 内容与功能
@@ -28,19 +30,19 @@ node tests/updates.browser.mjs
 node tests/experience.browser.mjs
 ```
 
-本地预览：http://127.0.0.1:4177/jingchan-yuwen-assistant/ 。浏览器检查默认使用本机 Google Chrome；其他环境通过 `BROWSER_EXECUTABLE` 配置路径，通过 `TEST_URL` 指向预览或已部署网址。
+本地预览：http://127.0.0.1:4177/jingchan-yuwen-assistant/ 。浏览器检查默认使用本机 Google Chrome，`TEST_BROWSER=webkit`可切换内核，`PLAYWRIGHT_MODULE`与`PLAYWRIGHT_BROWSERS_PATH`可选择已安装的匹配运行库；其他环境通过 `BROWSER_EXECUTABLE` 配置路径，通过 `TEST_URL` 指向预览或已部署网址。
 
 `public/`为静态源文件，构建只发布`dist/`；脚本、样式和教材数据使用内容指纹文件名，避免混合版本。所有资源相对路径、hash页面导航，适配Pages项目子路径。
 
 ## 发布
 
-唯一公开仓库：[ZhiYanRen/jingchan-yuwen-assistant](https://github.com/ZhiYanRen/jingchan-yuwen-assistant)。主干`main`，Pages来源为GitHub Actions；工作流`.github/workflows/pages.yml`在main推送时验证、构建并发布dist，PR只验证。正式网址与上线检查结果在实际部署后回填。
+唯一公开仓库：[ZhiYanRen/jingchan-yuwen-assistant](https://github.com/ZhiYanRen/jingchan-yuwen-assistant)。主干`main`，Pages来源为GitHub Actions；工作流`.github/workflows/pages.yml`在main推送时验证、构建并发布dist，PR只验证。正式网站：https://zhiyanren.github.io/jingchan-yuwen-assistant/ ，已完成部署和线上页面、资源、听写核对与刷新恢复验证。
 
-应用岛目录`app-island/public/projects.json`已登记准备中，部署后验证正式网址，再改为published并同步发布。
+应用岛目录`app-island/public/projects.json`已登记为published并完成发布；已核验Logo、正式目标网址、新窗口打开与opener隔离。
 
 ## 已知限制
 
 - 未核验用户手中纸质教材的具体印次；上下册版本来源分别标注，请对照自己的课本。
 - 系统中文语音、离线语音与读音取决于设备，部分多音字需对照纸质教材；可显示人工校对过的拼音辅助练习。
 - 清理浏览器网站数据会删除本机记录；换设备前请导出备份，导入会在确认后替换当前记录。
-- 目前为模拟浏览器验证，不能替代iPad真机、真实软键盘和主屏幕图标验收。
+- 已通过Chrome与WebKit六种视口的模拟浏览器验证，不能替代iPad真机、真实软键盘和主屏幕图标验收。
